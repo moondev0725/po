@@ -1,0 +1,417 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  color: #181818;
+  background: #f5f6f8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.demo-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid rgba(20, 20, 20, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  background: #111;
+}
+
+.demo-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.68fr) minmax(0, 1.32fr);
+  gap: clamp(26px, 4vw, 56px);
+  align-items: center;
+  padding: clamp(32px, 5vw, 68px) clamp(20px, 4vw, 64px);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #6f7785;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.demo-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 4.8vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.demo-desc {
+  max-width: 58ch;
+  margin: 24px 0 0;
+  color: #454b57;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  transition: opacity 0.18s ease;
+}
+
+.demo-stage {
+  position: relative;
+  padding: 12px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.13);
+}
+
+.stage-viewport {
+  position: relative;
+}
+
+.stage-viewport img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  background: #eef2f7;
+}
+
+.demo-hotspot {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0);
+  cursor: default;
+}
+
+.demo-hotspot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0);
+  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+
+.demo-hotspot:hover::after,
+.demo-hotspot.is-active::after {
+  border-color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+}
+
+.nextdebut .demo-hotspot:hover::after,
+.nextdebut .demo-hotspot.is-active::after {
+  outline: 2px solid rgba(225, 29, 72, 0.38);
+}
+
+.momslog .demo-hotspot:hover::after {
+  outline: 2px solid rgba(21, 128, 61, 0.34);
+}
+
+.hotspot-notice {
+  left: 22.3%;
+  top: 1.9%;
+  width: 4.6%;
+  height: 3.6%;
+}
+
+.hotspot-guide {
+  left: 28.1%;
+  top: 1.1%;
+  width: 4.2%;
+  height: 4.3%;
+}
+
+.hotspot-index {
+  left: 33.4%;
+  top: 1.3%;
+  width: 4.2%;
+  height: 4.3%;
+}
+
+.hotspot-board {
+  left: 38.8%;
+  top: 1.6%;
+  width: 4.6%;
+  height: 3.9%;
+}
+
+.hotspot-fanmeeting {
+  left: 44.7%;
+  top: 1.2%;
+  width: 6.7%;
+  height: 4.4%;
+}
+
+.hotspot-casting {
+  left: 52.4%;
+  top: 0.9%;
+  width: 5.3%;
+  height: 4.8%;
+}
+
+.hotspot-report {
+  left: 58.7%;
+  top: 1.2%;
+  width: 5.8%;
+  height: 4.6%;
+}
+
+.hotspot-shop {
+  left: 65.1%;
+  top: 1.6%;
+  width: 4.5%;
+  height: 4%;
+}
+
+.hotspot-login {
+  left: 75.4%;
+  top: 2.1%;
+  width: 4.4%;
+  height: 2.8%;
+}
+
+.hotspot-signup {
+  left: 80.2%;
+  top: 2.1%;
+  width: 4.6%;
+  height: 2.8%;
+}
+
+.hotspot-search {
+  left: 85.5%;
+  top: 1.2%;
+  width: 10.2%;
+  height: 4.5%;
+}
+
+.hotspot-bgm {
+  left: 96%;
+  top: 0.8%;
+  width: 2.7%;
+  height: 5.2%;
+}
+
+.hotspot-enter {
+  left: 31.5%;
+  top: 56.5%;
+  width: 13%;
+  height: 7.5%;
+}
+
+.hotspot-live-pick {
+  left: 71.4%;
+  top: 10.3%;
+  width: 12.3%;
+  height: 56.1%;
+  border-radius: 16px;
+}
+
+.hotspot-ranking {
+  left: 14.4%;
+  top: 68.8%;
+  width: 21%;
+  height: 28.9%;
+  border-radius: 14px;
+}
+
+.hotspot-popular-board {
+  left: 36.1%;
+  top: 68.8%;
+  width: 26.2%;
+  height: 28.5%;
+  border-radius: 14px;
+}
+
+.hotspot-popular-item {
+  left: 63.2%;
+  top: 68.9%;
+  width: 21%;
+  height: 28.5%;
+  border-radius: 14px;
+}
+
+.hotspot-sidebar {
+  left: 95.8%;
+  top: 31.4%;
+  width: 2.5%;
+  height: 39.5%;
+  border-radius: 22px;
+}
+
+.moms-hotspot-search {
+  left: 40.1%;
+  top: 8.6%;
+  width: 22.8%;
+  height: 6.4%;
+}
+
+.moms-hotspot-auth {
+  left: 72.5%;
+  top: 10.2%;
+  width: 8%;
+  height: 4%;
+}
+
+.moms-hotspot-notice {
+  left: 32.4%;
+  top: 26%;
+  width: 6.5%;
+  height: 4.1%;
+}
+
+.moms-hotspot-story {
+  left: 39.9%;
+  top: 25.9%;
+  width: 5.1%;
+  height: 4.2%;
+}
+
+.moms-hotspot-meal {
+  left: 46.2%;
+  top: 25.4%;
+  width: 4.5%;
+  height: 5%;
+}
+
+.moms-hotspot-pet {
+  left: 52%;
+  top: 25.7%;
+  width: 4%;
+  height: 4.5%;
+}
+
+.moms-hotspot-guide {
+  left: 57.7%;
+  top: 25.7%;
+  width: 4.2%;
+  height: 4.5%;
+}
+
+.moms-hotspot-market-nav {
+  left: 63.6%;
+  top: 25.4%;
+  width: 3.8%;
+  height: 5%;
+}
+
+.moms-hotspot-hero {
+  left: 20.1%;
+  top: 32.5%;
+  width: 41.8%;
+  height: 20.5%;
+  border-radius: 26px;
+}
+
+.moms-hotspot-hotpost {
+  left: 20%;
+  top: 56.2%;
+  width: 41.8%;
+  height: 33.9%;
+  border-radius: 26px;
+}
+
+.moms-hotspot-login-card {
+  left: 62.5%;
+  top: 31.9%;
+  width: 17.2%;
+  height: 36.7%;
+  border-radius: 30px;
+}
+
+.moms-hotspot-calendar {
+  left: 62.5%;
+  top: 69.8%;
+  width: 17.6%;
+  height: 29%;
+  border-radius: 28px;
+}
+
+.moms-hotspot-chat {
+  left: 92.7%;
+  top: 90%;
+  width: 6.2%;
+  height: 8.4%;
+  border-radius: 16px;
+}
+
+.moms-hotspot-quick {
+  left: 92.5%;
+  top: 79.2%;
+  width: 6.4%;
+  height: 9%;
+  border-radius: 16px;
+}
+
+.nextdebut {
+  background:
+    radial-gradient(circle at 80% 12%, rgba(236, 72, 153, 0.15), transparent 28%),
+    linear-gradient(180deg, #fff7fb, #f6f7fb 52%, #eef1f7);
+}
+
+.nextdebut .brand-mark {
+  background: #e11d48;
+}
+
+.momslog {
+  background:
+    radial-gradient(circle at 78% 10%, rgba(34, 197, 94, 0.15), transparent 28%),
+    linear-gradient(180deg, #f8fff9, #f6f7fb 52%, #eef1f7);
+}
+
+.momslog .brand-mark {
+  background: #15803d;
+}
+
+@media (max-width: 900px) {
+  .demo-topbar,
+  .demo-hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .demo-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .demo-hero {
+    grid-template-columns: 1fr;
+  }
+
+}

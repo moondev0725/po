@@ -438,10 +438,29 @@ ul {
 }
 
 .project-content {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 28px;
   align-items: start;
+}
+
+.project-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 47.62%;
+  width: 1px;
+  background: #e6e6e6;
+  pointer-events: none;
+}
+
+.project-visual-column {
+  min-width: 0;
+  display: grid;
+  gap: 24px;
+  align-self: start;
 }
 
 .project-preview {
@@ -683,6 +702,12 @@ ul {
   font-weight: 700;
 }
 
+.project-preview-details {
+  display: grid;
+  gap: 18px;
+  padding: 0 14px;
+}
+
 .project-info {
   display: grid;
   gap: 18px;
@@ -894,6 +919,10 @@ ul {
   .grid-2,
   .project-content {
     grid-template-columns: 1fr;
+  }
+
+  .project-content::before {
+    display: none;
   }
 
   .project-top {
